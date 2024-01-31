@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #bcbebe; 
+    color: #01b1ef; 
+}
+  
+  .home-page {
+    text-align: center;
+  }
+  
+  .title-container {
+    margin-top: 20px;
+  }
+  
+  .page-title {
+    font-size: 2em;
+    margin: 0;
+    color: #5fe0ff; 
+  }
+  
+  .video-container {
+    margin-top: 20px;
+  }
+  
