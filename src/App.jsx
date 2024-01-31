@@ -1,12 +1,17 @@
 import Home from "./pages/Home";
 import "./styles/App.css";
+import Navbar from "./components/Navbar.jsx";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <Home /> {}
-    </>
+
+    <div>
+      <Navbar />
+     <Home />
+      {}
+    </div>
+
   );
-}
+};
 
 export default App;
