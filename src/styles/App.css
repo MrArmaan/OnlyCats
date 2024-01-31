@@ -31,3 +31,27 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
+  .name {
+    position: absolute;
+    margin-top: 120px;
+    color: #ffffff;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  }
+
+  .gender{
+    position: absolute;
+    margin-top: 155px;
+    margin-left: 150px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  }
+
+  .star {
+    position: absolute;
+    margin-top: 155px;
+    margin-left: 250px;
+    color: #ffffff;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  }
