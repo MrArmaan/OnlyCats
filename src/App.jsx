@@ -1,11 +1,13 @@
 import "./styles/App.css";
+import Navbar from "./components/Navbar.jsx";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <h1>Welcome to the cat adoption website!</h1>
-    </>
+    <div>
+      <Navbar />
+      {}
+    </div>
   );
-}
+};
 
 export default App;
