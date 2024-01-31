@@ -1,25 +1,101 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #bcbebe; 
-    color: #01b1ef; 
-}
+    background-color: #ffffff;
+    color: #01b1ef;
+  }
   
   .home-page {
     text-align: center;
   }
   
-  .title-container {
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo-container {
     margin-top: 20px;
+  }
+  
+  .logo {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
   
   .page-title {
     font-size: 2em;
-    margin: 0;
-    color: #5fe0ff; 
+    margin: 10px 0;
+    color: #5fe0ff;
   }
   
-  .video-container {
+  .slogan-container {
+    margin-top: 10px;
+  }
+  
+  .slogan {
+    font-size: 1.5em;
+    margin: 0;
+    font-family: 'Scriptina', cursive;
+  }
+  
+  .video-and-text-container {
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
   }
   
+  .video-container {
+    width: 60%;
+  }
+  
+  .text-box {
+    width: 35%;
+  }
+  
+  .editable-text {
+    font-family: 'Scriptina', cursive;
+    margin: 0;
+  }
+  
+  .login-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column; /* Adjusted to column layout */
+    align-items: center;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .input-container .paw-icon {
+    margin-right: 10px;
+  }
+  
+  input {
+    width: 100%; /* Adjusted width to take the full width of the container */
+    padding: 10px;
+    border: 1px solid #01b1ef;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Separation between inputs */
+  }
+  
+  .login-button {
+    width: 100%; /* Adjusted width to take the full width of the container */
+    padding: 10px;
+    background-color: #01b1ef;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #5fe0ff;
+  }
