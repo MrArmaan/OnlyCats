@@ -1,14 +1,15 @@
 import Home from "./pages/Home";
 import "./styles/App.css";
-import Guidelines from "./pages/Guidelines";
+import Guidelins from "./pages/Guidelines"
 
-function App() {
+const App = () => {
   return (
     <>
-    <Guidelines />
-    <Home />
+
+      <Home /> {}
+      <h1>Welcome to OnlyCats</h1>
     </>
   );
-}
+};
 
 export default App;
