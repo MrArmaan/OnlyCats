@@ -12,9 +12,13 @@ const Home = () => {
         <div className="banner-container">
           <img src={bannerImage} alt="OnlyCats Banner" className="banner-image" />
         </div>
+
         <div className="slogan-container">
           <p className="slogan"> Welcome to OnlyCats!</p>
         </div>
+
+        
+        <div className="text-box">
         <div className="text-container">
           <div className="text-box">
             <p className="editable-text">
@@ -25,7 +29,7 @@ const Home = () => {
              
             </p>
           </div>
-        </div>
+
         <div className="login-container">
           <div className="input-container">
             <div className="paw-icon">
@@ -33,6 +37,7 @@ const Home = () => {
             </div>
             <input type="text" placeholder="Username" />
           </div>
+
           <div className="input-container">
             <div className="paw-icon">
               <FaPaw size={24} color="#01b1ef" />
@@ -41,6 +46,14 @@ const Home = () => {
           </div>
           <button className="login-button">Login</button>
         </div>
+
+        <div className="video-and-text-container">
+          <div className="video-container">
+
+          </div>
+
+        </div>
+
       </div>
     </div>
   );
