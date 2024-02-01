@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 const Product = ({ id, name, price, addToCart }) => {
@@ -29,7 +30,7 @@ const Product = ({ id, name, price, addToCart }) => {
     );
     };
 
-    const App = () => {
+const Checkout = () => {
     const [cart, setCart] = useState([]);
 
     const addToCart = item => {
@@ -57,4 +58,4 @@ const Product = ({ id, name, price, addToCart }) => {
     );
 };
 
-export default App;
+export default Checkout;

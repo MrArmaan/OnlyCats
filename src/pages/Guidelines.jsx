@@ -75,7 +75,7 @@ const Guidelines = () => {
                 belonging among our members.
             </p>
             </section>
-
+        <hr />
             <section className="termsAndCons">
             <h3>Terms and Conditions</h3>
             <ol>
