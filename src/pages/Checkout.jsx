@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 const Product = ({ id, name, price, addToCart }) => {
@@ -14,7 +15,7 @@ const Product = ({ id, name, price, addToCart }) => {
     );
     };
 
-    const ShoppingCart = ({ cart }) => {
+    const ShoppingCart = ({ cart }) => {      
     return (
         <div>
         <h2>Shopping Cart</h2>

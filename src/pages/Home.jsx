@@ -1,24 +1,32 @@
 // import NavBar from './NavBar';
 import "../styles/Home.css";
-import logo from "../Images/MicrosoftTeams-image.png";
 import { FaPaw } from "react-icons/fa";
+import bannerImage from "../assets/onlycats_banner.jpg";
 
 const Home = () => {
   return (
     <div className="home-page">
-      {/* <NavBar /> */}
+      {}
       <div className="content-container">
+        {}
+        <div className="banner-container">
+          <img src={bannerImage} alt="OnlyCats Banner" className="banner-image" />
+        </div>
 
         <div className="slogan-container">
-          <p className="slogan">The purrrrfect choice!</p>
+          <p className="slogan"> Welcome to OnlyCats!</p>
         </div>
+
         
         <div className="text-box">
+        <div className="text-container">
+          <div className="text-box">
             <p className="editable-text">
-              Welcome to OnlyCats. The UK`s number one stop for all your feline
-              fettishes. No request is to big for our pussies. Complete your
-              request and pay the feline fee. We hope you have a Purrrrrfect
-              Day!
+
+              The purrrrfect choice for all your feline fetishes. No request is too big for our cats. Complete your request
+              and pay the feline fee. Please login below so you can interact with your favourite cats. We hope you have a
+              Purrrrrfect Day!
+             
             </p>
           </div>
 

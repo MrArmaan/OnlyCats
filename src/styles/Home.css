@@ -1,4 +1,5 @@
 body {
+]
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #ffffff;
@@ -7,12 +8,27 @@ body {
 
 .home-page {
   text-align: center;
+
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: calc(80vh - 102.67px);
+
 }
 
 .content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  padding: 20px;
+  width: 50%;
 }
 
 .logo-container {
@@ -22,6 +38,7 @@ body {
 .logo {
   width: 150px;
   height: auto;
+
   display: block;
   margin: 0 auto;
 }
@@ -34,12 +51,15 @@ body {
 
 .slogan-container {
   margin-top: 10px;
+  color: #333;
 }
 
 .slogan {
   font-size: 1.5em;
   margin: 0;
   font-family: 'Scriptina', cursive;
+  color: #00aeef;
+  font-weight: 500;
 }
 
 .video-and-text-container {
@@ -63,6 +83,9 @@ body {
 .editable-text {
   font-family: 'Scriptina', cursive;
   margin: 0;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
 }
 
 .login-container {
@@ -70,12 +93,15 @@ body {
   display: flex;
   flex-direction: column; /* Adjusted to column layout */
   align-items: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 .input-container {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .input-container .paw-icon {
@@ -94,12 +120,47 @@ input {
   width: 100%; /* Adjusted width to take the full width of the container */
   padding: 10px;
   background-color: #01b1ef;
+  
+input,
+.login-button {
+  width: 100%;
+  padding: 10px;
+}
+
+input {
+  border: 1px solid #01b1ef;
+  border-radius: 5px;
+}
+
+.login-button {
+  background-color: #dcdfe4;
   color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+
 }
 
 .login-button:hover {
   background-color: #5fe0ff;
 }
+
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.login-button:hover {
+  background-color: #01b1ef;
+}
+
+.banner-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
