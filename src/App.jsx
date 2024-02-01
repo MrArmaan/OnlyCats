@@ -1,14 +1,19 @@
+import "./styles/App.css";
+import CatGrid from "./services/CatApi-CatGrid.jsx";
+import Guidelines from "./pages/Guidelines";
 import Home from "./pages/Home";
 import "./styles/App.css";
-import Guidelins from "./pages/Guidelines"
+import Navbar from "./components/Navbar.jsx";
 
 const App = () => {
   return (
-    <>
-
-      <Home /> {}
-      <h1>Welcome to OnlyCats</h1>
-    </>
+    <div>
+      <Navbar />
+      <Home />
+      <CatGrid />
+      <Guidelines />
+      {}
+    </div>
   );
 };
 
