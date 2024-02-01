@@ -1,27 +1,28 @@
+import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
-const Nav = () => {
+const Navbar = () => {
   return (
     <nav className="navbar">
       <img src="/onlycats_logo.png" alt="OnlyCats Logo" className="logo" />
       <div className="links-container">
         <ul className="navbar-links">
           <li>
-            <a href="/pages/Home">Home</a>
+            <Link to="/pages/Home">Home</Link>
           </li>
           <li>
-            <a href="/pages/Catalog">Catalog</a>
+            <Link to="/pages/Catalog">Catalog</Link>
           </li>
           <li>
-            <a href="/pages/Guidelines">Guidelines</a>
+            <Link to="/pages/Guidelines">Guidelines</Link>
           </li>
         </ul>
       </div>
-      <a href="/pages/Checkout" className="checkout-btn">
+      <Link to="/pages/Checkout" className="checkout-btn">
         Checkout
-      </a>
+      </Link>
     </nav>
   );
 };
 
-export default Nav;
+export default Navbar;
