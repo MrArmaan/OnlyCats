@@ -1,13 +1,19 @@
-import React from "react";
 import "./styles/App.css";
 import Guidelins from "./pages/Guidelines"
+import Home from "./pages/Home";
+import "./styles/App.css";
+import Navbar from "./components/Navbar.jsx";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <h1>Welcome to OnlyCats</h1>
-    </>
+
+    <div>
+      <Navbar />
+     <Home />
+      {}
+    </div>
+
   );
-}
+};
 
 export default App;
