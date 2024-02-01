@@ -19,7 +19,7 @@
       padding: 1%;
   }
   
-    /* Images crop and center to col-lg box up to 1000% centering (if 100% if it's 3x the size it doesn't fully center) */
+    /* Images crop and center up to 1000% centering (if 100% if it's 3x the size it doesn't fully center) */
   .card img{
     display:block;
       position: absolute;
@@ -39,14 +39,14 @@
 
   .name {
     position: absolute;
-    margin-top: 120px;
+    margin-top: 150px;
     color: #ffffff;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   }
 
   .gender{
     position: absolute;
-    margin-top: 155px;
+    margin-top: 185px;
     margin-left: 150px;
     text-transform: capitalize;
     color: #ffffff;
@@ -55,8 +55,8 @@
 
   .star {
     position: absolute;
-    margin-top: 155px;
-    margin-left: 250px;
+    margin-top: 185px;
+    margin-left: 280px;
     color: #ffffff;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   }
