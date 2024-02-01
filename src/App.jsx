@@ -68,7 +68,7 @@ function App() {
       </Modal>
     </>
   );
-}
+};
 
 export default App;
 // ReactDOM.render(<App />, document.getElementById('root'));
