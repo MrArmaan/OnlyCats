@@ -1,4 +1,4 @@
-import "./styles/Guidelines.css";
+import "../styles/Guidelines.css";
 
 const Guidelines = () => {
     return (

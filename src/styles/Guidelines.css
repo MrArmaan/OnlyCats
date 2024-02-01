@@ -7,6 +7,7 @@ body {
 }
 
 .guideContainer {
+    color: black;
     padding: 60px;
     background-image: url('src/images/pawbkgrd.png');
     background-size: 60%;
