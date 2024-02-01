@@ -1,3 +1,5 @@
+import "./styles/App.css";
+import Guidelins from "./pages/Guidelines"
 import Home from "./pages/Home";
 import "./styles/App.css";
 import Navbar from "./components/Navbar.jsx";
