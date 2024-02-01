@@ -1,4 +1,3 @@
-// import NavBar from './NavBar';
 import "../styles/Home.css";
 import { FaPaw } from "react-icons/fa";
 import bannerImage from "../assets/onlycats_banner.jpg";
@@ -12,24 +11,18 @@ const Home = () => {
         <div className="banner-container">
           <img src={bannerImage} alt="OnlyCats Banner" className="banner-image" />
         </div>
-
         <div className="slogan-container">
-          <p className="slogan"> Welcome to OnlyCats!</p>
+          <p className="slogan">Welcome to OnlyCats!</p>
         </div>
-
-        
-        <div className="text-box">
         <div className="text-container">
           <div className="text-box">
             <p className="editable-text">
-
               The purrrrfect choice for all your feline fetishes. No request is too big for our cats. Complete your request
               and pay the feline fee. Please login below so you can interact with your favourite cats. We hope you have a
               Purrrrrfect Day!
-             
             </p>
           </div>
-
+        </div>
         <div className="login-container">
           <div className="input-container">
             <div className="paw-icon">
@@ -37,7 +30,6 @@ const Home = () => {
             </div>
             <input type="text" placeholder="Username" />
           </div>
-
           <div className="input-container">
             <div className="paw-icon">
               <FaPaw size={24} color="#01b1ef" />
@@ -46,14 +38,6 @@ const Home = () => {
           </div>
           <button className="login-button">Login</button>
         </div>
-
-        <div className="video-and-text-container">
-          <div className="video-container">
-
-          </div>
-
-        </div>
-
       </div>
     </div>
   );
