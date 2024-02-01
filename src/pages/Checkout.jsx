@@ -1,41 +1,51 @@
-// Adding checkout to cart modal
-<Button 
-    floated='left' 
-    size='big' 
-    color='blue' 
-    // call check out function
-    onClick={goToCheckout}
->
-    Checkout
-</Button>
+import React, { useState } from 'react';
 
-const goToCheckout = e => {
-    // using history object in router to push customer to Check out page
-    history.push(`/checkout/${props.cart.id}`)
-    localStorage.setItem('cart-id', props.cart.id)
-    props.setModalOpen(false)
-    props.setCheckout(true)
-}
+const Checkout = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
 
-// rendering checkout container
-<PrivateRoute 
-    component={CheckoutContainer}
-    path={`/checkout/:id`} 
-    setCheckout={setCheckout}
-    setModalOpen={setModalOpen}
-    setReceipt={setReceipt}
-/>
-// Get a checkout token
-let cartId = props.match.params.id
-    commerce.checkout.generateToken(cartId, { type: 'cart' })
-    // Respond by setting Live Object in State
-        .then(res => {
-            setLiveObject(res.live)
-            setTokenId(res.id)
-        })
-        // If incorrect input
-        .catch(err => {
-            console.log(err)
-        })
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
 
-    props.setCheckout(true)
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value);
+  };
+
+  const handlePayment = () => {    
+    console.log('Processing payment...');    
+  };
+
+  return (
+    <div>
+      <h2>Checkout</h2>
+      <form>
+        <label>
+          Name:
+          <input type="text" value={name} onChange={handleNameChange} />
+        </label>
+        <br />
+        <label>
+          Email:
+          <input type="email" value={email} onChange={handleEmailChange} />
+        </label>
+        <br />
+        <label>
+          Address:
+          <textarea value={address} onChange={handleAddressChange} />
+        </label>
+        <br />
+        <button type="button" onClick={handlePayment}>
+          Process Payment
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Checkout;

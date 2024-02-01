@@ -28,7 +28,7 @@ const Home = () => {
           <div className="text-box">
             <p className="editable-text">
               Welcome to OnlyCats. The UK`s number one stop for all your feline
-              fettishes. No request is to big for our pussies. Complete your
+              fetishes. No request is to big for our pussies. Complete your
               request and pay the feline fee. We hope you have a Purrrrrfect
               Day!
             </p>
