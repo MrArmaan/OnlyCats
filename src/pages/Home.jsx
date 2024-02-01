@@ -18,9 +18,11 @@ const Home = () => {
         <div className="text-container">
           <div className="text-box">
             <p className="editable-text">
+
               The purrrrfect choice for all your feline fetishes. No request is too big for our cats. Complete your request
               and pay the feline fee. Please login below so you can interact with your favourite cats. We hope you have a
               Purrrrrfect Day!
+             
             </p>
           </div>
         </div>
