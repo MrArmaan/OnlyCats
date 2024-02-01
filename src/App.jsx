@@ -58,9 +58,9 @@ function App() {
         {selectedImg && (
           <div>
             <img src={selectedImg.url} alt={`Selected Cat`} />
-            {/* <h2>{faker.name.firstName()}</h2> */}
+            
             <p>{faker.person.bio()}</p>
-
+            
             {/* Button to close the modal */}
             <button onClick={closeModal}>Close</button>
           </div>
@@ -71,5 +71,3 @@ function App() {
 };
 
 export default App;
-// ReactDOM.render(<App />, document.getElementById('root'));
-// for modal faker.person.bio()

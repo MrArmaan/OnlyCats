@@ -30,7 +30,7 @@ const CatGrid = ({ onClick }) => {
     <div className="maincontent">
       <div className="imgrid" id="grid">
         {imagesData.map((imageData, index) => (
-          <div className="col col-lg" key={index}>
+          <div className="card" key={index}>
             <img
               src={imageData.url}
               alt={`Cat ${index}`}
