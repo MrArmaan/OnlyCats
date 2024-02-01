@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
 
 
-const CatGrid = () => {
+const CatGrid = ({ onClick }) => {
   const [imagesData, setImagesData] = useState([]);
 
   useEffect(() => {
@@ -28,17 +28,20 @@ const CatGrid = () => {
 
   return (
     <div className="maincontent">
-      
-    <div className="imgrid" id="grid"> 
-      {imagesData.map((imageData, index) => (
-        <div className="col col-lg" key={index}>
-          <img src={imageData.url} alt={`Cat ${index}`} />
-          <h1 className='name'>{faker.person.fullName()}</h1>
-          <p className='gender'>{faker.person.sex()}</p>
-          <p className='star'>{faker.person.zodiacSign()}</p>
-        </div>
-      ))}
-    </div>
+      <div className="imgrid" id="grid">
+        {imagesData.map((imageData, index) => (
+          <div className="card" key={index}>
+            <img
+              src={imageData.url}
+              alt={`Cat ${index}`}
+              onClick={() => onClick(imageData)}
+            />
+            <h1 className='name'>{faker.person.fullName()}</h1>
+            <p className='gender'>{faker.person.sex()}</p>
+            <p className='star'>{faker.person.zodiacSign()}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

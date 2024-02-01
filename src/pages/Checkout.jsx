@@ -1,41 +1,60 @@
-// Adding checkout to cart modal
-<Button 
-    floated='left' 
-    size='big' 
-    color='blue' 
-    // call check out function
-    onClick={goToCheckout}
->
-    Checkout
-</Button>
+import { useState } from 'react';
 
-const goToCheckout = e => {
-    // using history object in router to push customer to Check out page
-    history.push(`/checkout/${props.cart.id}`)
-    localStorage.setItem('cart-id', props.cart.id)
-    props.setModalOpen(false)
-    props.setCheckout(true)
-}
+const Product = ({ id, name, price, addToCart }) => {
+    const handleAddToCart = () => {
+        addToCart({ id, name, price, quantity: 1 });
+    };
 
-// rendering checkout container
-<PrivateRoute 
-    component={CheckoutContainer}
-    path={`/checkout/:id`} 
-    setCheckout={setCheckout}
-    setModalOpen={setModalOpen}
-    setReceipt={setReceipt}
-/>
-// Get a checkout token
-let cartId = props.match.params.id
-    commerce.checkout.generateToken(cartId, { type: 'cart' })
-    // Respond by setting Live Object in State
-        .then(res => {
-            setLiveObject(res.live)
-            setTokenId(res.id)
-        })
-        // If incorrect input
-        .catch(err => {
-            console.log(err)
-        })
+    return (
+        <div>
+        <h3>{name}</h3>
+        <p>Price: £{price}</p>
+        <button onClick={handleAddToCart}>Add to Cart</button>
+        </div>
+    );
+    };
 
-    props.setCheckout(true)
+    const ShoppingCart = ({ cart }) => {
+    return (
+        <div>
+        <h2>Shopping Cart</h2>
+        <ul>
+            {cart.map(item => (
+            <li key={item.id}>
+                {item.name} - £{item.price} - Quantity: {item.quantity}
+            </li>
+            ))}
+        </ul>
+        </div>
+    );
+    };
+
+    const App = () => {
+    const [cart, setCart] = useState([]);
+
+    const addToCart = item => {
+
+    const itemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+
+    if (itemIndex !== -1) {
+        const updatedCart = [...cart];
+        updatedCart[itemIndex].quantity++;
+        setCart(updatedCart);
+        } else {
+        setCart([...cart, item]);
+        }
+    };
+
+    return (
+        <div>
+        <h1>Checkout</h1>
+
+        <Product id={1} name="Product 1" price={10} addToCart={addToCart} />
+        <Product id={2} name="Product 2" price={15} addToCart={addToCart} />
+
+        <ShoppingCart cart={cart} />
+        </div>
+    );
+};
+
+export default App;

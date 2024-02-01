@@ -7,9 +7,14 @@ body {
 }
 
 .guideContainer {
+    background-image: url('src/images/pawbkgrd.png');
+    background-size: 40%;
+    background-repeat: repeat-x;
+
     color: black;
     padding: 60px;
-    background-image: url('src/images/pawbkgrd.png');
-    background-size: 60%;
-    background-position: center;
+}
+
+h3, h2 {
+    padding: 10px;
 }
