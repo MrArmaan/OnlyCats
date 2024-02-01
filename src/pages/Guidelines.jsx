@@ -1,6 +1,3 @@
-import React from 'react';
-import Guidelines from './styles/Guidelines';
-
 const Guidelines = () => {
     return (
         <>

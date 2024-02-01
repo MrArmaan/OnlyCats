@@ -1,11 +1,12 @@
-import React from "react";
+import Home from "./pages/Home";
 import "./styles/App.css";
-import Guidelins from "./pages/Guidelines"
+import Guidelines from "./pages/Guidelines";
 
 function App() {
   return (
     <>
-      <h1>Welcome to OnlyCats</h1>
+    <Guidelines />
+    <Home />
     </>
   );
 }
