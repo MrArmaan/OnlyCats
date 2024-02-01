@@ -8,17 +8,17 @@ const Navbar = () => {
       <div className="links-container">
         <ul className="navbar-links">
           <li>
-            <Link to="/pages/Home">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/pages/Catalog">Catalog</Link>
+            <Link to="/Catalog">Catalog</Link>
           </li>
           <li>
-            <Link to="/pages/Guidelines">Guidelines</Link>
+            <Link to="/Guidelines">Guidelines</Link>
           </li>
         </ul>
       </div>
-      <Link to="/pages/Checkout" className="checkout-btn">
+      <Link to="/Checkout" className="checkout-btn">
         Checkout
       </Link>
     </nav>
