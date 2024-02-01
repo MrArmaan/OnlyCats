@@ -1,53 +1,64 @@
 // import NavBar from './NavBar';
 import "../styles/Home.css";
-import logo from "../Images/MicrosoftTeams-image.png";
 import { FaPaw } from "react-icons/fa";
+import bannerImage from "../assets/onlycats_banner.jpg";
 
 const Home = () => {
   return (
     <div className="home-page">
-      {/* <NavBar /> */}
+      {/* Banner */}
       <div className="content-container">
-        <div className="logo-container">
-          <img src={logo} alt="Only Cats Logo" className="logo" />
+        {/* Banner Container */}
+        <div className="banner-container">
+          <img src={bannerImage} alt="OnlyCats Banner" className="banner-image" />
         </div>
+
+        {/* Slogan Container */}
         <div className="slogan-container">
-          <p className="slogan">The purrrrfect choice!</p>
+          <p className="slogan"> Welcome to OnlyCats!</p>
         </div>
-        <div className="video-and-text-container">
-          <div className="video-container">
-            <iframe
-              width="480"
-              height="270"
-              src="https://www.youtube.com/embed/hxt8Dh6cY8U?autoplay=1"
-              title="Only Cats Video"
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-          </div>
-          <div className="text-box">
+
+        {/* Text Box */}
+        <div className="text-box">
+          {/* Text Container */}
+          <div className="text-container">
+            {/* Editable Text */}
             <p className="editable-text">
-              Welcome to OnlyCats. The UK`s number one stop for all your feline
-              fettishes. No request is to big for our pussies. Complete your
-              request and pay the feline fee. We hope you have a Purrrrrfect
-              Day!
+              The purrrrfect choice for all your feline fetishes. No request is too big for our cats. Complete your request
+              and pay the feline fee. Please login below so you can interact with your favourite cats. We hope you have a
+              Purrrrrfect Day!
             </p>
           </div>
-        </div>
-        <div className="login-container">
-          <div className="input-container">
-            <div className="paw-icon">
-              <FaPaw size={24} color="#01b1ef" />
+
+          {/* Login Container */}
+          <div className="login-container">
+            {/* Username Input */}
+            <div className="input-container">
+              <div className="paw-icon">
+                <FaPaw size={24} color="#01b1ef" />
+              </div>
+              <input type="text" placeholder="Username" />
             </div>
-            <input type="text" placeholder="Username" />
-          </div>
-          <div className="input-container">
-            <div className="paw-icon">
-              <FaPaw size={24} color="#01b1ef" />
+
+            {/* Password Input */}
+            <div className="input-container">
+              <div className="paw-icon">
+                <FaPaw size={24} color="#01b1ef" />
+              </div>
+              <input type="password" placeholder="Password" />
             </div>
-            <input type="password" placeholder="Password" />
+
+            {/* Login Button */}
+            <button className="login-button">Login</button>
           </div>
-          <button className="login-button">Login</button>
+
+          {/* Video and Text Container */}
+          <div className="video-and-text-container">
+            {/* Video Container */}
+            <div className="video-container">
+              {/* Add your video component or content here */}
+            </div>
+          </div>
         </div>
       </div>
     </div>
