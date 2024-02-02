@@ -1,61 +1,61 @@
+import { useState, useEffect } from "react";
 
-import { useState } from 'react';
+const Checkout = ({ subscriptionInfo, onRemoveSubscription }) => {
+  const [subscriptions, setSubscriptions] = useState([]);
+  const [totalAmount, setTotalAmount] = useState(0);
 
-const Product = ({ id, name, price, addToCart }) => {
-    const handleAddToCart = () => {
-        addToCart({ id, name, price, quantity: 1 });
-    };
+  useEffect(() => {
+    if (subscriptionInfo) {
+      setSubscriptions((prevSubscriptions) => [
+        ...prevSubscriptions,
+        subscriptionInfo,
+      ]);
+    }
+  }, [subscriptionInfo]);
 
-    return (
-        <div>
-        <h3>{name}</h3>
-        <p>Price: £{price}</p>
-        <button onClick={handleAddToCart}>Add to Cart</button>
-        </div>
+  useEffect(() => {
+    const newTotalAmount = subscriptions.reduce(
+      (acc, subscription) => acc + parseFloat(subscription.price),
+      0
     );
-    };
 
-    const ShoppingCart = ({ cart }) => {      
-    return (
-        <div>
-        <h2>Shopping Cart</h2>
+    setTotalAmount(newTotalAmount);
+  }, [subscriptions]);
+
+  const handleRemoveSubscription = (index) => {
+    onRemoveSubscription(index);
+
+    const newTotalAmount = subscriptions
+      .filter((_, i) => i !== index)
+      .reduce((acc, subscription) => acc + parseFloat(subscription.price), 0);
+
+    setTotalAmount(newTotalAmount);
+  };
+
+  return (
+    <div className="checkout-container">
+      <h2>Checkout</h2>
+
+      <div className="subscriptions-list">
+        <h3>Subscriptions:</h3>
         <ul>
-            {cart.map(item => (
-            <li key={item.id}>
-                {item.name} - £{item.price} - Quantity: {item.quantity}
+          {subscriptions.map((subscription, index) => (
+            <li key={index}>
+              {`${subscription.name} - ${subscription.months} months - £${subscription.price}`}
+              <button onClick={() => handleRemoveSubscription(index)}>
+                Remove
+              </button>
             </li>
-            ))}
+          ))}
         </ul>
-        </div>
-    );
-    };
+      </div>
 
-    const App = () => {
-    const [cart, setCart] = useState([]);
-
-    const addToCart = item => {
-
-    const itemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
-
-    if (itemIndex !== -1) {
-        const updatedCart = [...cart];
-        updatedCart[itemIndex].quantity++;
-        setCart(updatedCart);
-        } else {
-        setCart([...cart, item]);
-        }
-    };
-
-    return (
-        <div>
-        <h1>Checkout</h1>
-
-        <Product id={1} name="Product 1" price={10} addToCart={addToCart} />
-        <Product id={2} name="Product 2" price={15} addToCart={addToCart} />
-
-        <ShoppingCart cart={cart} />
-        </div>
-    );
+      <div className="total-amount">
+        <h3>Total Amount:</h3>
+        <p>£{totalAmount.toFixed(2)}</p>
+      </div>
+    </div>
+  );
 };
 
-export default App;
+export default Checkout;
