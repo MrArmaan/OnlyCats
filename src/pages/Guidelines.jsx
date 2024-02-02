@@ -51,11 +51,13 @@ const Guidelines = () => {
             Remember, at OnlyCats, the possibilities are as endless as a ball of yarn on a lazy Sunday afternoon. So grab
             your favorite feather toy, curl up in your coziest sunbeam, and let the purring commence!
           </p>
+
           <p>
             To ensure a paw-sitive experience for all, please adhere to our community guidelines. These guidelines are
             designed to maintain the integrity and fluffiness of our platform while fostering a sense of belonging among our
             members.
           </p>
+
         </section>
 
         <section className="termsAndCons">
@@ -102,6 +104,8 @@ const Guidelines = () => {
             Meow and forever yours, <br />
             The OnlyCats Team
           </p>
+
+    
         </section>
       </div>
     </>
