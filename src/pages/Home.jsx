@@ -9,21 +9,22 @@ const Home = () => {
       <div className="content-container">
         {}
         <div className="banner-container">
-          <img src={bannerImage} alt="OnlyCats Banner" className="banner-image" />
+          <img
+            src={bannerImage}
+            alt="OnlyCats Banner"
+            className="banner-image"
+          />
         </div>
         <div className="slogan-container">
-
           <p className="slogan">WELCOME TO ONLYCATS!</p>
-
-          <p className="slogan">Welcome to OnlyCats!</p>
-
         </div>
         <div className="text-container">
           <div className="text-box">
-            <p className="editable-text">    
-              The purrrrfect choice for all your feline fetishes. No request is too big for our cats. Complete your request
-              and pay the feline fee. Please login below so you can interact with your favourite cats. We hope you have a
-              Purrrrrfect Day!
+            <p className="editable-text">
+              The purrrrfect choice for all your feline fetishes. No request is
+              too big for our cats. Complete your request and pay the feline
+              fee. Please login below so you can interact with your favourite
+              cats. We hope you have a Purrrrrfect Day!
             </p>
           </div>
         </div>
@@ -39,9 +40,9 @@ const Home = () => {
               <FaPaw size={24} color="#01b1ef" />
             </div>
             <input type="password" placeholder="Password" />
-          </div>                                                            
+          </div>
           <button className="login-button">LOGIN</button>
-        </div>  
+        </div>
       </div>
     </div>
   );

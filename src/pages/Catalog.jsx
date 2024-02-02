@@ -3,6 +3,7 @@ import { faker } from "@faker-js/faker";
 import CatModal from "./CatModal";
 import { useNavigate } from "react-router-dom";
 import { useSubscription } from "./SubscriptionContext";
+import Notification from "./Notification";
 import "../styles/Catalog.css";
 
 const Catalog = () => {
@@ -22,6 +23,8 @@ const Catalog = () => {
   const navigate = useNavigate();
 
   const pageNumbers = Array.from({ length: maxPages }, (_, i) => i + 1);
+
+  const [notification, setNotification] = useState(null);
 
   const fetchPage = useCallback(
     async (page) => {
@@ -88,7 +91,13 @@ const Catalog = () => {
   const handleSubscribe = (info) => {
     dispatch({ type: "SUBSCRIBE", payload: info });
     setShowModal(false);
-    navigate("./pages/Checkout");
+
+    // Show a notification when the subscription is added
+    setNotification({
+      message:
+        "Item has been added to the checkout. Please continue to browse.",
+      type: "success", // You can define different types for different styles
+    });
   };
 
   return (
@@ -152,7 +161,14 @@ const Catalog = () => {
         </button>
       </div>
 
-      {/* Display modal if selectedCat is not null */}
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
+
       {showModal && (
         <CatModal
           catData={selectedCat}

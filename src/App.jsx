@@ -5,6 +5,7 @@ import Catalog from "./pages/Catalog";
 import Guidelines from "./pages/Guidelines";
 import Checkout from "./pages/Checkout";
 import { SubscriptionProvider } from "./pages/SubscriptionContext";
+import MyAudioComponent from "./Components/Audio.jsx";
 import "./styles/App.css";
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/Guidelines" element={<Guidelines />} />
             <Route path="/Checkout" element={<Checkout />} />
           </Routes>
+          <MyAudioComponent />
         </div>
       </SubscriptionProvider>
     </Router>
