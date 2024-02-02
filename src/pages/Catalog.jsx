@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import CatModal from "./CatModal";
 import { faker } from "@faker-js/faker";
 import "../styles/Catalog.css";
 
@@ -10,6 +11,9 @@ const Catalog = () => {
   const maxPages = 6;
 
   const [loadedImages, setLoadedImages] = useState({});
+  const [showModal, setShowModal] = useState(false);
+  const [selectedCat, setSelectedCat] = useState(null);
+  const [subscriptionInfo, setSubscriptionInfo] = useState(null);
 
   const pageNumbers = Array.from({ length: maxPages }, (_, i) => i + 1);
 
@@ -75,23 +79,27 @@ const Catalog = () => {
     fetchPage(pageNumber);
   };
 
-  if (loading) {
-    return (
-      <div className="loading-container">
-        <img
-          src="/loading.gif"
-          alt="Loading Animation"
-          className="loading-image"
-        />
-      </div>
-    );
-  }
+  const handleSubscribe = (info) => {
+    setSubscriptionInfo(info);
+    setShowModal(false);
+  };
+
+  const handleRemoveSubscription = () => {
+    setSubscriptionInfo(null);
+  };
 
   return (
-    <div className="maincontent">
+    <div className="catalog-page">
       <div className="imgrid" id="grid">
         {currentItems.map((imageData, index) => (
-          <div className="card" key={index}>
+          <div
+            className="card"
+            key={index}
+            onClick={() => {
+              setSelectedCat(imageData);
+              setShowModal(true);
+            }}
+          >
             <img src={imageData.url} alt={`Cat ${index}`} loading="lazy" />
             <h1 className="name">{imageData.name}</h1>
             <p className="gender">
@@ -102,7 +110,18 @@ const Catalog = () => {
               )}
             </p>
             <p className="breed">{imageData.breed}</p>
-            <button className="subscribe-button">SUBSCRIBE</button>
+            <button
+              className="subscribe-button"
+              onClick={() =>
+                handleSubscribe({
+                  name: imageData.name,
+                  months: Math.floor(Math.random() * 4) + 1,
+                  price: (Math.random() * 20).toFixed(2),
+                })
+              }
+            >
+              SUBSCRIBE
+            </button>
           </div>
         ))}
       </div>
@@ -129,6 +148,15 @@ const Catalog = () => {
           <i className="fas fa-chevron-right"></i>
         </button>
       </div>
+
+      {/* Display modal if selectedCat is not null */}
+      {showModal && (
+        <CatModal
+          catData={selectedCat}
+          onClose={() => setShowModal(false)}
+          onSubscribe={handleSubscribe}
+        />
+      )}
     </div>
   );
 };
