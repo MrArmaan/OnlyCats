@@ -57,8 +57,4 @@ const Checkout = () => {
     );
 };
 
-<<<<<<< HEAD
 export default Checkout;
-=======
-export default Checkout;
->>>>>>> b865b324cb79e7d1a65cdd3df5e3792321296bd8

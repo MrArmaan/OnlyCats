@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar.jsx";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import CatGrid from "./services/CatApi-CatGrid";
 import Guidelines from "./pages/Guidelines";

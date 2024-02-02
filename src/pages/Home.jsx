@@ -8,9 +8,9 @@ const Home = () => {
       {}
       <div className="content-container">
         {}
-        <div className="banner-container">
+        {/* <div className="banner-container">
           <img src={bannerImage} alt="OnlyCats Banner" className="banner-image" />
-        </div>
+        </div> */}
         <div className="slogan-container">
           <p className="slogan"> Welcome to OnlyCats!</p>
         </div>
