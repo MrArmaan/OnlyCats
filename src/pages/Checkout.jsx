@@ -13,14 +13,7 @@ const Product = ({ id, name, price, addToCart }) => {
         <button onClick={handleAddToCart}>Add to Cart</button>
         </div>
     );
-};
-
-    Product.propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    addToCart: PropTypes.func.isRequired,
-};
+    };
 
     const ShoppingCart = ({ cart }) => {      
     return (
@@ -40,8 +33,9 @@ const Product = ({ id, name, price, addToCart }) => {
     const App = () => {
     const [cart, setCart] = useState([]);
 
-    const addToCart = (item) => {
-    const itemIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
+    const addToCart = item => {
+
+    const itemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
 
     if (itemIndex !== -1) {
         const updatedCart = [...cart];
@@ -64,4 +58,4 @@ const Product = ({ id, name, price, addToCart }) => {
     );
 };
 
-export default Checkout;
+export default App;

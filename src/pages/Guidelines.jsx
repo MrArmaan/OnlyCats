@@ -51,48 +51,46 @@ const Guidelines = () => {
             Remember, at OnlyCats, the possibilities are as endless as a ball of yarn on a lazy Sunday afternoon. So grab
             your favorite feather toy, curl up in your coziest sunbeam, and let the purring commence!
           </p>
+
+          <p>
+            To ensure a paw-sitive experience for all, please adhere to our community guidelines. These guidelines are
+            designed to maintain the integrity and fluffiness of our platform while fostering a sense of belonging among our
+            members.
+          </p>
+
         </section>
 
-            <section className="termsAndCons">
-            <h3>Terms and Conditions</h3>
-            <ol>
-                <li>
-                <strong>Cat-Exclusive Content:</strong> OnlyCats is dedicated to
-                celebrating our whiskered companions. Content shared on this
-                platform must be cat-related, whether it`s heartwarming cat
-                videos, purrfect cat memes, or adorable cat photoshoots. Any
-                non-feline content will be swiftly paw-ltered out.
-                </li>
-                <li>
-                <strong>Purrsonal Conduct:</strong> We expect all members of our
-                meow-nificent community to treat each other with the utmost
-                respect and kindness. Any hiss-terical behavior, including
-                trolling, bullying, or litter-ally any form of negativity, will
-                not be tolerated. Let`s keep the vibes fur-bulously positive!
-                </li>
-                <li>
-                <strong>Feline Privacy:</strong> A cat`s privacy is our top
-                priority. Please refrain from sharing any purrsonal information
-                about your feline companions that could compromise their safety or
-                security. This includes but is not limited to their favorite nap
-                spots, preferred belly tickle techniques, and the location of
-                their secret treat stash.
-                </li>
-                <li>
-                <strong>Paws Off Piracy:</strong> All content shared on OnlyCats
-                must be original or appropriately attributed. Copycat behavior,
-                such as unauthorized reproduction of content or claiming someone
-                else`s purrwork as your own, is strictly prohibited.
-                </li>
-                <li>
-                <strong>Furry Friendships:</strong> While OnlyCats celebrates the
-                bond between humans and cats, it`s important to remember that not
-                all cats are looking for fur-ternal relationships. Respect
-                boundaries and consent, whether you`re sending a virtual nose boop
-                or engaging in a casual chat. Remember, enthusiastic purring does
-                not always equal consent.
-                </li>
-            </ol>
+        <section className="termsAndCons">
+          <h3>Terms and Conditions</h3>
+          <ol>
+            <li>
+              <strong>Cat-Exclusive Content:</strong> OnlyCats is dedicated to celebrating our whiskered companions. Content
+              shared on this platform must be cat-related, whether it`s heartwarming cat videos, purrfect cat memes, or
+              adorable cat photoshoots. Any non-feline content will be swiftly paw-ltered out.
+            </li>
+            <li>
+              <strong>Purrsonal Conduct:</strong> We expect all members of our meow-nificent community to treat each other
+              with the utmost respect and kindness. Any hiss-terical behavior, including trolling, bullying, or litter-ally
+              any form of negativity, will not be tolerated. Let`s keep the vibes fur-bulously positive!
+            </li>
+            <li>
+              <strong>Feline Privacy:</strong> A cat`s privacy is our top priority. Please refrain from sharing any purrsonal
+              information about your feline companions that could compromise their safety or security. This includes but is
+              not limited to their favorite nap spots, preferred belly tickle techniques, and the location of their secret
+              treat stash.
+            </li>
+            <li>
+              <strong>Paws Off Piracy:</strong> All content shared on OnlyCats must be original or appropriately attributed.
+              Copycat behavior, such as unauthorized reproduction of content or claiming someone else`s purrwork as your own,
+              is strictly prohibited.
+            </li>
+            <li>
+              <strong>Furry Friendships:</strong> While OnlyCats celebrates the bond between humans and cats, it`s important
+              to remember that not all cats are looking for fur-ternal relationships. Respect boundaries and consent, whether
+              you`re sending a virtual nose boop or engaging in a casual chat. Remember, enthusiastic purring does not always
+              equal consent.
+            </li>
+          </ol>
 
           <p>
             By accessing or using OnlyCats, you agree to abide by these terms and conditions. Failure to comply may result in
