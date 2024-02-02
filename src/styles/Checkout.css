@@ -1,0 +1,59 @@
+h1 {
+  text-align: center;
+}
+
+.product {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.product h3 {
+  margin-bottom: 5px;
+}
+
+.product p {
+  color: #666;
+}
+
+.shopping-cart {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.shopping-cart h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.shopping-cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+.shopping-cart li {
+  margin: 10px 0;
+}
+
+.total {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pay-now {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pay-now button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
