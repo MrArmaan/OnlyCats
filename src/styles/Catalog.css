@@ -73,12 +73,12 @@
 .card .gender,
 .card .breed {
   margin: 5px;
-.card .star {
-  margin: 10px;
-  text-align: center;
-  word-wrap: break-word;
+  .card .star {
+    margin: 10px;
+    text-align: center;
+    word-wrap: break-word;
+  }
 }
-
 .card .name {
   margin-top: 10px;
   font-size: 1.2em;

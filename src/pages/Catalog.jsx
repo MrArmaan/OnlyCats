@@ -1,9 +1,14 @@
-
 import { useState, useEffect, useCallback } from "react";
 import { faker } from "@faker-js/faker";
+import CatModal from "./CatModal";
+import { useNavigate } from "react-router-dom";
+import { useSubscription } from "./SubscriptionContext";
+import Notification from "./Notification";
 import "../styles/Catalog.css";
 
 const Catalog = () => {
+  const { dispatch } = useSubscription();
+
   const [imagesData, setImagesData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -11,8 +16,15 @@ const Catalog = () => {
   const maxPages = 6;
 
   const [loadedImages, setLoadedImages] = useState({});
+  const [showModal, setShowModal] = useState(false);
+  const [selectedCat, setSelectedCat] = useState(null);
+  const { addSubscription } = useSubscription();
+
+  const navigate = useNavigate();
 
   const pageNumbers = Array.from({ length: maxPages }, (_, i) => i + 1);
+
+  const [notification, setNotification] = useState(null);
 
   const fetchPage = useCallback(
     async (page) => {
@@ -24,18 +36,6 @@ const Catalog = () => {
       }
 
       const url = `https://api.thecatapi.com/v1/images/search?limit=${itemsPerPage}&page=${page}`;
-
-import { useState, useEffect } from "react";
-import { faker } from "@faker-js/faker";
-import PropTypes from "prop-types";
-import "../styles/Catalog.css";
-
-const Catalog = ({ onClick }) => {
-  const [imagesData, setImagesData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = "https://api.thecatapi.com/v1/images/search?limit=21";
       const api_key = "live_5oFkLgqzJlEQoqfSM9wGAxXNFmRO04OisLkOKupqH5gc2PLAurQ9nUASoiraLDKK";
 
       try {
@@ -44,7 +44,7 @@ const Catalog = ({ onClick }) => {
             "x-api-key": api_key,
           },
         });
-        
+
         let data = await response.json();
         data = data.filter((imageData) => !imageData.url.endsWith(".gif"));
 
@@ -56,7 +56,10 @@ const Catalog = ({ onClick }) => {
         }));
 
         setImagesData((prevData) => [...prevData, ...data]);
-        setLoadedImages((prevLoadedImages) => ({ ...prevLoadedImages, [page]: true }));
+        setLoadedImages((prevLoadedImages) => ({
+          ...prevLoadedImages,
+          [page]: true,
+        }));
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -81,28 +84,29 @@ const Catalog = ({ onClick }) => {
     fetchPage(pageNumber);
   };
 
-  if (loading) {
-    return (
-      <div className="loading-container">
-        <img src="/loading.gif" alt="Loading Animation" className="loading-image" />
-      </div>
-    );
-  }
-        const data = await response.json();
-        setImagesData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
+  const handleSubscribe = (info) => {
+    dispatch({ type: "SUBSCRIBE", payload: info });
+    setShowModal(false);
+
+    // Show a notification when the subscription is added
+    setNotification({
+      message: "Item has been added to the checkout. Please continue to browse.",
+      type: "success", // You can define different types for different styles
+    });
+  };
 
   return (
-    <div className="maincontent">
+    <div className="catalog-page">
       <div className="imgrid" id="grid">
-
-    {currentItems.map((imageData, index) => (
-          <div className="card" key={index}>
+        {currentItems.map((imageData, index) => (
+          <div
+            className="card"
+            key={index}
+            onClick={() => {
+              setSelectedCat(imageData);
+              setShowModal(true);
+            }}
+          >
             <img src={imageData.url} alt={`Cat ${index}`} loading="lazy" />
             <h1 className="name">{imageData.name}</h1>
             <p className="gender">
@@ -113,7 +117,18 @@ const Catalog = ({ onClick }) => {
               )}
             </p>
             <p className="breed">{imageData.breed}</p>
-            <button className="subscribe-button">SUBSCRIBE</button>
+            <button
+              className="subscribe-button"
+              onClick={() =>
+                handleSubscribe({
+                  name: imageData.name,
+                  months: Math.floor(Math.random() * 4) + 1,
+                  price: (Math.random() * 20).toFixed(2),
+                })
+              }
+            >
+              SUBSCRIBE
+            </button>
           </div>
         ))}
       </div>
@@ -134,21 +149,14 @@ const Catalog = ({ onClick }) => {
           <i className="fas fa-chevron-right"></i>
         </button>
       </div>
-        {imagesData.map((imageData, index) => (
-          <div className="card" key={index}>
-            <img src={imageData.url} alt={`Cat ${index}`} onClick={() => onClick(imageData)} />
-            <h1 className="name">{faker.person.fullName()}</h1>
-            <p className="gender">{faker.person.sex()}</p>
-            <p className="star">{faker.person.zodiacSign()}</p>
-          </div>
-        ))}
-      </div>
+
+      {notification && (
+        <Notification message={notification.message} type={notification.type} onClose={() => setNotification(null)} />
+      )}
+
+      {showModal && <CatModal catData={selectedCat} onClose={() => setShowModal(false)} onSubscribe={handleSubscribe} />}
     </div>
   );
-};
-
-Catalog.propTypes = {
-  onClick: PropTypes.func.isRequired,
 };
 
 export default Catalog;
