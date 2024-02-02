@@ -51,11 +51,6 @@ const Guidelines = () => {
             Remember, at OnlyCats, the possibilities are as endless as a ball of yarn on a lazy Sunday afternoon. So grab
             your favorite feather toy, curl up in your coziest sunbeam, and let the purring commence!
           </p>
-          <p>
-            To ensure a paw-sitive experience for all, please adhere to our community guidelines. These guidelines are
-            designed to maintain the integrity and fluffiness of our platform while fostering a sense of belonging among our
-            members.
-          </p>
         </section>
 
         <section className="termsAndCons">
@@ -93,14 +88,6 @@ const Guidelines = () => {
           <p>
             By accessing or using OnlyCats, you agree to abide by these terms and conditions. Failure to comply may result in
             a temporary timeout or, in severe cases, being banished to the litter box of shame.
-          </p>
-          <p>
-            Thank you for being a part of our fur-midable community. Together, let`s make OnlyCats the most paw-some place on
-            the internet!
-          </p>
-          <p>
-            Meow and forever yours, <br />
-            The OnlyCats Team
           </p>
         </section>
       </div>

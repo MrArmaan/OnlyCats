@@ -52,3 +52,18 @@
   background-color: #00aeef;
   color: white;
 }
+
+.card .subscribe-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #17afe4;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card .subscribe-button:hover {
+  background-color: #1692cf;
+}
