@@ -9,9 +9,12 @@ import "./styles/App.css";
 import React from "react";
 import Modal from 'react-modal';
 import {faker} from "@faker-js/faker";
-
+import MyAudioComponent from "./components/Audio.jsx"
+// import myAudio from './assets/my-audio.mp3';
 // Set the app element for the modal
 Modal.setAppElement(document.getElementById('root'));
+
+
 
 const customStyles = {
   content: {
@@ -84,6 +87,7 @@ function App() {
             <Route path="/Guidelines" element={<Guidelines />} />
             <Route path="/Checkout" element={<Checkout />} />
           </Routes>
+          <MyAudioComponent />
         </div>
       </SubscriptionProvider>
     </Router>
