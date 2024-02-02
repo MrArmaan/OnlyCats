@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useCallback } from "react";
 import { faker } from "@faker-js/faker";
 import "../styles/Catalog.css";
@@ -24,19 +23,8 @@ const Catalog = () => {
       }
 
       const url = `https://api.thecatapi.com/v1/images/search?limit=${itemsPerPage}&page=${page}`;
-
-import { useState, useEffect } from "react";
-import { faker } from "@faker-js/faker";
-import PropTypes from "prop-types";
-import "../styles/Catalog.css";
-
-const Catalog = ({ onClick }) => {
-  const [imagesData, setImagesData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = "https://api.thecatapi.com/v1/images/search?limit=21";
-      const api_key = "live_5oFkLgqzJlEQoqfSM9wGAxXNFmRO04OisLkOKupqH5gc2PLAurQ9nUASoiraLDKK";
+      const api_key =
+        "live_5oFkLgqzJlEQoqfSM9wGAxXNFmRO04OisLkOKupqH5gc2PLAurQ9nUASoiraLDKK";
 
       try {
         const response = await fetch(url, {
@@ -44,7 +32,7 @@ const Catalog = ({ onClick }) => {
             "x-api-key": api_key,
           },
         });
-        
+
         let data = await response.json();
         data = data.filter((imageData) => !imageData.url.endsWith(".gif"));
 
@@ -56,7 +44,10 @@ const Catalog = ({ onClick }) => {
         }));
 
         setImagesData((prevData) => [...prevData, ...data]);
-        setLoadedImages((prevLoadedImages) => ({ ...prevLoadedImages, [page]: true }));
+        setLoadedImages((prevLoadedImages) => ({
+          ...prevLoadedImages,
+          [page]: true,
+        }));
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -70,7 +61,10 @@ const Catalog = ({ onClick }) => {
     fetchPage(currentPage);
   }, [currentPage, fetchPage]);
 
-  const totalPages = Math.min(Math.ceil(imagesData.length / itemsPerPage), maxPages);
+  const totalPages = Math.min(
+    Math.ceil(imagesData.length / itemsPerPage),
+    maxPages
+  );
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -84,24 +78,19 @@ const Catalog = ({ onClick }) => {
   if (loading) {
     return (
       <div className="loading-container">
-        <img src="/loading.gif" alt="Loading Animation" className="loading-image" />
+        <img
+          src="/loading.gif"
+          alt="Loading Animation"
+          className="loading-image"
+        />
       </div>
     );
   }
-        const data = await response.json();
-        setImagesData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
 
   return (
     <div className="maincontent">
       <div className="imgrid" id="grid">
-
-    {currentItems.map((imageData, index) => (
+        {currentItems.map((imageData, index) => (
           <div className="card" key={index}>
             <img src={imageData.url} alt={`Cat ${index}`} loading="lazy" />
             <h1 className="name">{imageData.name}</h1>
@@ -118,7 +107,10 @@ const Catalog = ({ onClick }) => {
         ))}
       </div>
       <div className="pagination">
-        <button onClick={() => paginate(Math.max(1, currentPage - 1))} disabled={currentPage === 1}>
+        <button
+          onClick={() => paginate(Math.max(1, currentPage - 1))}
+          disabled={currentPage === 1}
+        >
           <i className="fas fa-chevron-left"></i>
         </button>
         {pageNumbers.map((pageNumber) => (
@@ -130,25 +122,15 @@ const Catalog = ({ onClick }) => {
             {pageNumber}
           </button>
         ))}
-        <button onClick={() => paginate(Math.min(totalPages, currentPage + 1))} disabled={currentPage === totalPages}>
+        <button
+          onClick={() => paginate(Math.min(totalPages, currentPage + 1))}
+          disabled={currentPage === totalPages}
+        >
           <i className="fas fa-chevron-right"></i>
         </button>
       </div>
-        {imagesData.map((imageData, index) => (
-          <div className="card" key={index}>
-            <img src={imageData.url} alt={`Cat ${index}`} onClick={() => onClick(imageData)} />
-            <h1 className="name">{faker.person.fullName()}</h1>
-            <p className="gender">{faker.person.sex()}</p>
-            <p className="star">{faker.person.zodiacSign()}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
-};
-
-Catalog.propTypes = {
-  onClick: PropTypes.func.isRequired,
 };
 
 export default Catalog;
