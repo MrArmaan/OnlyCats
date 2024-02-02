@@ -42,6 +42,25 @@
 .guidelines ol li strong,
 .termsAndCons ol li strong h3 {
   color: black;
+
+.guidelines ol li,
+.termsAndCons ol li {
+  counter-increment: item;
+  margin-bottom: 10px;
+}
+
+.guidelines ol li::before,
+.termsAndCons ol li::before {
+  content: counter(item) ".";
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 18px;
+  color: #018de5;
+}
+
+.guidelines ol li strong,
+.termsAndCons ol li strong {
+  color: #333;
 }
 
 .guidelines p,
