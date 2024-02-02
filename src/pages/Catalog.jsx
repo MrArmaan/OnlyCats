@@ -1,9 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
-import CatModal from "./CatModal";
 import { faker } from "@faker-js/faker";
+import CatModal from "./CatModal";
+import { useNavigate } from "react-router-dom";
+import { useSubscription } from "./SubscriptionContext";
 import "../styles/Catalog.css";
 
 const Catalog = () => {
+  const { dispatch } = useSubscription();
+
   const [imagesData, setImagesData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -13,7 +17,9 @@ const Catalog = () => {
   const [loadedImages, setLoadedImages] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [selectedCat, setSelectedCat] = useState(null);
-  const [subscriptionInfo, setSubscriptionInfo] = useState(null);
+  const { addSubscription } = useSubscription();
+
+  const navigate = useNavigate();
 
   const pageNumbers = Array.from({ length: maxPages }, (_, i) => i + 1);
 
@@ -80,12 +86,9 @@ const Catalog = () => {
   };
 
   const handleSubscribe = (info) => {
-    setSubscriptionInfo(info);
+    dispatch({ type: "SUBSCRIBE", payload: info });
     setShowModal(false);
-  };
-
-  const handleRemoveSubscription = () => {
-    setSubscriptionInfo(null);
+    navigate("./pages/Checkout");
   };
 
   return (
