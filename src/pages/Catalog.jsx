@@ -4,9 +4,15 @@ import CatModal from "./CatModal";
 import { useNavigate } from "react-router-dom";
 import { useSubscription } from "./SubscriptionContext";
 import Notification from "./Notification";
+import CatModal from "./CatModal";
+import { useNavigate } from "react-router-dom";
+import { useSubscription } from "./SubscriptionContext";
+import Notification from "./Notification";
 import "../styles/Catalog.css";
 
 const Catalog = () => {
+  const { dispatch } = useSubscription();
+
   const { dispatch } = useSubscription();
 
   const [imagesData, setImagesData] = useState([]);
@@ -21,8 +27,15 @@ const Catalog = () => {
   const { addSubscription } = useSubscription();
 
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+  const [selectedCat, setSelectedCat] = useState(null);
+  const { addSubscription } = useSubscription();
+
+  const navigate = useNavigate();
 
   const pageNumbers = Array.from({ length: maxPages }, (_, i) => i + 1);
+
+  const [notification, setNotification] = useState(null);
 
   const [notification, setNotification] = useState(null);
 
@@ -45,6 +58,7 @@ const Catalog = () => {
           },
         });
 
+
         let data = await response.json();
         data = data.filter((imageData) => !imageData.url.endsWith(".gif"));
 
@@ -56,6 +70,10 @@ const Catalog = () => {
         }));
 
         setImagesData((prevData) => [...prevData, ...data]);
+        setLoadedImages((prevLoadedImages) => ({
+          ...prevLoadedImages,
+          [page]: true,
+        }));
         setLoadedImages((prevLoadedImages) => ({
           ...prevLoadedImages,
           [page]: true,
@@ -73,7 +91,10 @@ const Catalog = () => {
     fetchPage(currentPage);
   }, [currentPage, fetchPage]);
 
-  const totalPages = Math.min(Math.ceil(imagesData.length / itemsPerPage), maxPages);
+  const totalPages = Math.min(
+    Math.ceil(imagesData.length / itemsPerPage),
+    maxPages
+  );
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -94,10 +115,31 @@ const Catalog = () => {
       type: "success", // You can define different types for different styles
     });
   };
+  const handleSubscribe = (info) => {
+    dispatch({ type: "SUBSCRIBE", payload: info });
+    setShowModal(false);
+
+    // Show a notification when the subscription is added
+    setNotification({
+      message:
+        "Item has been added to the checkout. Please continue to browse.",
+      type: "success", // You can define different types for different styles
+    });
+  };
 
   return (
     <div className="catalog-page">
+    <div className="catalog-page">
       <div className="imgrid" id="grid">
+        {currentItems.map((imageData, index) => (
+          <div
+            className="card"
+            key={index}
+            onClick={() => {
+              setSelectedCat(imageData);
+              setShowModal(true);
+            }}
+          >
         {currentItems.map((imageData, index) => (
           <div
             className="card"
@@ -129,11 +171,26 @@ const Catalog = () => {
             >
               SUBSCRIBE
             </button>
+            <button
+              className="subscribe-button"
+              onClick={() =>
+                handleSubscribe({
+                  name: imageData.name,
+                  months: Math.floor(Math.random() * 4) + 1,
+                  price: (Math.random() * 20).toFixed(2),
+                })
+              }
+            >
+              SUBSCRIBE
+            </button>
           </div>
         ))}
       </div>
       <div className="pagination">
-        <button onClick={() => paginate(Math.max(1, currentPage - 1))} disabled={currentPage === 1}>
+        <button
+          onClick={() => paginate(Math.max(1, currentPage - 1))}
+          disabled={currentPage === 1}
+        >
           <i className="fas fa-chevron-left"></i>
         </button>
         {pageNumbers.map((pageNumber) => (
@@ -145,16 +202,29 @@ const Catalog = () => {
             {pageNumber}
           </button>
         ))}
-        <button onClick={() => paginate(Math.min(totalPages, currentPage + 1))} disabled={currentPage === totalPages}>
+        <button
+          onClick={() => paginate(Math.min(totalPages, currentPage + 1))}
+          disabled={currentPage === totalPages}
+        >
           <i className="fas fa-chevron-right"></i>
         </button>
       </div>
 
       {notification && (
-        <Notification message={notification.message} type={notification.type} onClose={() => setNotification(null)} />
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
       )}
 
-      {showModal && <CatModal catData={selectedCat} onClose={() => setShowModal(false)} onSubscribe={handleSubscribe} />}
+      {showModal && (
+        <CatModal
+          catData={selectedCat}
+          onClose={() => setShowModal(false)}
+          onSubscribe={handleSubscribe}
+        />
+      )}
     </div>
   );
 };

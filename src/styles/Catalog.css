@@ -1,6 +1,5 @@
 .maincontent {
   display: flex;
-
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
@@ -19,15 +18,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
-  width: 100%;
   max-width: 1200px;
-  margin: 20px auto;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .card {
   background-color: white;
-  border: 1px solid #dddddd;
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
@@ -61,10 +57,6 @@
 
 .card img {
   width: 100%;
-}
-
-.card img {
-  width: auto;
   height: 150px;
   object-fit: cover;
 }
@@ -88,35 +80,6 @@
 .card .gender,
 .card .breed {
   font-size: 0.9em;
-  color: #666666;
-}
-
-.loading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(80vh - 102.67px);
-}
-
-.loading-image {
-  width: 80px;
-  height: auto;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-.gender-icon {
-  font-size: 24px;
-}
-
-.male-color {
-  color: #60c6f2;
-}
-
-.female-color {
-  color: #f57aae;
 }
 
 .pagination {
@@ -167,8 +130,30 @@
   font-weight: bold;
 }
 
-.card .gender,
-.card .star {
-  font-size: 0.9em;
-  color: #666;
+.gender-icon {
+  font-size: 24px;
+}
+
+.male-color {
+  color: #60c6f2;
+}
+
+.female-color {
+  color: #f57aae;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(80vh - 102.67px);
+}
+
+.loading-image {
+  width: 80px;
+  height: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
