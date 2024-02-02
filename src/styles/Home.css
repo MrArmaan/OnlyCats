@@ -1,4 +1,13 @@
 body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
+  color: #01b1ef;
+}
+
+.home-page {
+  text-align: center;
+
   background-color: #ffffff;
   color: #333333;
 }
@@ -83,7 +92,7 @@ input {
 }
 
 .login-button {
-  background-color: #dcdfe4;
+  background-color: #00aeef;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -93,7 +102,7 @@ input {
 }
 
 .login-button:hover {
-  background-color: #01b1ef;
+  background-color: #1c7dbb;
 }
 
 .banner-container {
@@ -106,3 +115,4 @@ input {
   height: auto;
   max-height: 200px;
 }
+

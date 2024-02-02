@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import CatGrid from "./services/CatApi-CatGrid";
+import Catalog from "./pages/Catalog";
 import Guidelines from "./pages/Guidelines";
 import Checkout from "./pages/Checkout";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -13,7 +13,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Catalog" element={<CatGrid />} />
+          <Route path="/Catalog" element={<Catalog />} />
           <Route path="/Guidelines" element={<Guidelines />} />
           <Route path="/Checkout" element={<Checkout />} />
         </Routes>

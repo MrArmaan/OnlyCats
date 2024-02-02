@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 const Product = ({ id, name, price, addToCart }) => {
@@ -12,9 +13,16 @@ const Product = ({ id, name, price, addToCart }) => {
         <button onClick={handleAddToCart}>Add to Cart</button>
         </div>
     );
-    };
+};
 
-    const ShoppingCart = ({ cart }) => {
+    Product.propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    addToCart: PropTypes.func.isRequired,
+};
+
+    const ShoppingCart = ({ cart }) => {      
     return (
         <div>
         <h2>Shopping Cart</h2>
@@ -29,12 +37,11 @@ const Product = ({ id, name, price, addToCart }) => {
     );
     };
 
-const Checkout = () => {
+    const App = () => {
     const [cart, setCart] = useState([]);
 
-    const addToCart = item => {
-
-    const itemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+    const addToCart = (item) => {
+    const itemIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
 
     if (itemIndex !== -1) {
         const updatedCart = [...cart];

@@ -75,7 +75,7 @@ const Guidelines = () => {
                 belonging among our members.
             </p>
             </section>
-        <hr />
+
             <section className="termsAndCons">
             <h3>Terms and Conditions</h3>
             <ol>
@@ -117,23 +117,14 @@ const Guidelines = () => {
                 </li>
             </ol>
 
-            <p>
-                By accessing or using OnlyCats, you agree to abide by these terms
-                and conditions. Failure to comply may result in a temporary timeout
-                or, in severe cases, being banished to the litter box of shame.
-            </p>
-            <p>
-                Thank you for being a part of our fur-midable community. Together,
-                let`s make OnlyCats the most paw-some place on the internet!
-            </p>
-            <p>
-                Meow and forever yours, <br />
-                The OnlyCats Team
-            </p>
-            </section>
-        </div>
-        </>
-    );
+          <p>
+            By accessing or using OnlyCats, you agree to abide by these terms and conditions. Failure to comply may result in
+            a temporary timeout or, in severe cases, being banished to the litter box of shame.
+          </p>
+        </section>
+      </div>
+    </>
+  );
 };
 
 export default Guidelines;
