@@ -1,4 +1,3 @@
-// import NavBar from './NavBar';
 import "../styles/Home.css";
 import { FaPaw } from "react-icons/fa";
 import bannerImage from "../assets/onlycats_banner.jpg";
@@ -12,10 +11,13 @@ const Home = () => {
         <div className="banner-container">
           <img src={bannerImage} alt="OnlyCats Banner" className="banner-image" />
         </div>
-
         {/* Slogan Container */}
         <div className="slogan-container">
-          <p className="slogan"> Welcome to OnlyCats!</p>
+
+          <p className="slogan">WELCOME TO ONLYCATS!</p>
+
+          <p className="slogan">Welcome to OnlyCats!</p>
+
         </div>
 
         {/* Text Box */}
@@ -29,37 +31,22 @@ const Home = () => {
               Purrrrrfect Day!
             </p>
           </div>
-
-          {/* Login Container */}
-          <div className="login-container">
-            {/* Username Input */}
-            <div className="input-container">
-              <div className="paw-icon">
-                <FaPaw size={24} color="#01b1ef" />
-              </div>
-              <input type="text" placeholder="Username" />
-            </div>
-
-            {/* Password Input */}
-            <div className="input-container">
-              <div className="paw-icon">
-                <FaPaw size={24} color="#01b1ef" />
-              </div>
-              <input type="password" placeholder="Password" />
-            </div>
-
-            {/* Login Button */}
-            <button className="login-button">Login</button>
-          </div>
-
-          {/* Video and Text Container */}
-          <div className="video-and-text-container">
-            {/* Video Container */}
-            <div className="video-container">
-              {/* Add your video component or content here */}
-            </div>
-          </div>
         </div>
+        <div className="login-container">
+          <div className="input-container">
+            <div className="paw-icon">
+              <FaPaw size={24} color="#01b1ef" />
+            </div>
+            <input type="text" placeholder="Email" />
+          </div>
+          <div className="input-container">
+            <div className="paw-icon">
+              <FaPaw size={24} color="#01b1ef" />
+            </div>
+            <input type="password" placeholder="Password" />
+          </div>                                                            
+          <button className="login-button">LOGIN</button>
+        </div>  
       </div>
     </div>
   );
