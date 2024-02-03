@@ -3,8 +3,8 @@ import "../styles/CatModal.css";
 import PropTypes from "prop-types";
 
 const CatModal = ({ catData, onClose, onSubscribe }) => {
-  const [months, setMonths] = useState(Math.floor(Math.random() * 4) + 1);
-  const [price, setPrice] = useState((Math.random() * 20).toFixed(2));
+  const [months] = useState(Math.floor(Math.random() * 4) + 1);
+  const [price] = useState((Math.random() * 20).toFixed(2));
 
   const handleSubscribe = () => {
     onSubscribe({
@@ -27,6 +27,15 @@ const CatModal = ({ catData, onClose, onSubscribe }) => {
       </div>
     </div>
   );
+};
+
+CatModal.propTypes = {
+  catData: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSubscribe: PropTypes.func.isRequired,
 };
 
 export default CatModal;

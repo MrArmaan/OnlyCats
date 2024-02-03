@@ -7,6 +7,7 @@ import Checkout from "./pages/Checkout";
 import { SubscriptionProvider } from "./pages/SubscriptionContext";
 import MyAudioComponent from "./components/audio.jsx";
 import "./styles/App.css";
+import "./styles/index.css";
 
 const App = () => {
   return (
