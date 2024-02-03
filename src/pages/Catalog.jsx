@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { faker } from "@faker-js/faker";
 import CatModal from "./CatModal";
-import { useNavigate } from "react-router-dom";
 import { useSubscription } from "./SubscriptionContext";
 import Notification from "./Notification";
 import "../styles/Catalog.css";
@@ -18,9 +17,6 @@ const Catalog = () => {
   const [loadedImages, setLoadedImages] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [selectedCat, setSelectedCat] = useState(null);
-  const { addSubscription } = useSubscription();
-
-  const navigate = useNavigate();
 
   const pageNumbers = Array.from({ length: maxPages }, (_, i) => i + 1);
 

@@ -5,8 +5,6 @@ const Checkout = () => {
   const { state, dispatch } = useSubscription();
 
   const handleRemoveSubscription = (index) => {
-    const removedSubscription = state.subscriptions[index];
-
     dispatch({
       type: "REMOVE_SUBSCRIPTION",
       payload: index,

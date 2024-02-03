@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import PropTypes from "prop-types";
 
 const SubscriptionContext = createContext();
 
@@ -16,7 +17,7 @@ const subscriptionReducer = (state, action) => {
         totalAmount: state.totalAmount + parseFloat(action.payload.price),
       };
 
-    case "REMOVE_SUBSCRIPTION":
+    case "REMOVE_SUBSCRIPTION": {
       const removedSubscription = state.subscriptions[action.payload];
       return {
         ...state,
@@ -25,6 +26,7 @@ const subscriptionReducer = (state, action) => {
         ),
         totalAmount: state.totalAmount - parseFloat(removedSubscription.price),
       };
+    }
 
     case "CLEAR_SUBSCRIPTIONS":
       return {
@@ -61,6 +63,13 @@ const useSubscription = () => {
     );
   }
   return context;
+};
+
+SubscriptionProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 export { SubscriptionProvider, useSubscription };
